@@ -151,7 +151,13 @@
     <bool name="config_enableHardwareFlpOverlay">true</bool>
     <bool name="config_enableGeocoderOverlay">true</bool>
     <bool name="config_enableGeofenceOverlay">true</bool>
+    <!-- The Google provider -->
+        <item>com.google.android.gms</item>
 
     <!-- SD card is hot-pluggable on this device -->
     <bool name="config_batterySdCardAccessibility">true</bool>
+
+    <!-- enable doze powersaving mode -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+
 </resources>
