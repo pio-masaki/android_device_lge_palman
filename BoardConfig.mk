@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a15 -mfpu=neon-vfpv4 -mfloat-abi=softfp -ffast-math
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a15 -mfpu=neon-vfpv4 -mfloat-abi=softfp -ffast-math
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -30,6 +30,13 @@ TARGET_KRAIT_BIONIC_PLDOFFS := 10
 TARGET_KRAIT_BIONIC_PLDTHRESH := 10
 TARGET_KRAIT_BIONIC_BBTHRESH := 64
 TARGET_KRAIT_BIONIC_PLDSIZE := 64
+
+# Liquid Optimizations - maybe for later
+USE_O3 := true
+GRAPHITE := true
+LTO := true
+A15_QUAD := true
+STRICT := true
 
 TARGET_NO_BOOTLOADER := true
 
@@ -86,6 +93,9 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_USES_SECURE_SERVICES := true
 
 BOARD_USES_EXTRA_THERMAL_SENSOR := true
+
+#Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_USES_CAMERA_FAST_AUTOFOCUS := true
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
@@ -97,7 +107,6 @@ BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -120,7 +129,18 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 TARGET_RECOVERY_FSTAB = device/lge/palman/fstab.palman
 
+# Others
 BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_USES_LOGD := false
+BOARD_SUPPRESS_SECURE_ERASE := true
+
+# QC Optimizations
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
+# GPS
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+TARGET_NO_RPC := true
 
 # SELinux policies
 # qcom sepolicy
