@@ -135,7 +135,13 @@ PRODUCT_PACKAGES += \
 	libOmxVenc \
 	libOmxCore \
 	libstagefrighthw \
-	libc2dcolorconvert
+	libc2dcolorconvert \
+        libdashplayer \
+        libOmxAacEnc \
+        libOmxAmrEnc \
+        libOmxEvrcEnc \
+        libOmxQcelp13Enc \
+        libOmxVdecHevc
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	rild.libpath=/system/lib/libril-qc-qmi-1.so
